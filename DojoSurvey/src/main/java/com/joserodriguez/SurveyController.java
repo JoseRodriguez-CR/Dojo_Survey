@@ -29,6 +29,11 @@ public class SurveyController {
 			@RequestParam(value="language") String language,
 			@RequestParam(value="comment") String comment,
 			Model model){
+		//System.out.println(language);
+		if(language.equals("Java") ) {
+			model.addAttribute("result", new Survey(name, location, language, comment));
+			return "surveyinfojava.jsp";
+		}
 		model.addAttribute("result", new Survey(name, location, language, comment));
 		return "surveyinfo.jsp";
 	}
